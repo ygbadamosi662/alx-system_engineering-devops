@@ -1,1 +1,1 @@
-went back to the previous directory
+list hidden files in long range in multiple files
