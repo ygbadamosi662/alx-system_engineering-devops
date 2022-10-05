@@ -1,1 +1,1 @@
-deleted a folder
+went back to the previous directory
