@@ -1,1 +1,1 @@
-we deleted a file in a folder
+deleted a folder
