@@ -1,1 +1,1 @@
-we moved all files that starts witha capital letter
+deleted all files in the current directory that ends with ~
