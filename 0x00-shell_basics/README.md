@@ -1,1 +1,1 @@
-we copied html files from the current directory to its parent directory
+we moved all files that starts witha capital letter
