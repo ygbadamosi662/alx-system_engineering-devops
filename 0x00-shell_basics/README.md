@@ -1,1 +1,1 @@
-sorted files in the current directory
+we created a magic file
