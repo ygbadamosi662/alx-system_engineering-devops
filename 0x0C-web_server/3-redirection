@@ -17,4 +17,6 @@ printf %s "server {
     }
 }" > /etc/nginx/sites-available/default
 
+sudo rm /etc/nginx/sites-enabled/default
+
 service nginx restart
