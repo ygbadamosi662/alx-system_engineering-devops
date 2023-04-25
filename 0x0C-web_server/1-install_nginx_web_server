@@ -4,25 +4,8 @@
 # When querying Nginx at its root / with a GET request (requesting a page) 
 # using curl, it must return a page that contains the string Holberton School
 
-sudo apt-get update
-sudo apt-get -y upgrade
-
-sudo apt-get -y install nginx
-
+apt-get -y update
+apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-
-sudo bash -c 'echo "server {
-    listen 80 default_server;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    server_name localhost;
-    location / {
-        return 200 \"Hello World!\";
-    }
-}" > /etc/nginx/sites-available/hello'
-
-sudo ln -s /etc/nginx/sites-available/hello /etc/nginx/sites-enabled/
-
-sudo rm /etc/nginx/sites-enabled/default
-
-sudo service nginx restart
+echo 'Hello World!' > /var/www/html/index.html
+service nginx start
