@@ -9,6 +9,8 @@ sudo apt-get -y upgrade
 
 sudo apt-get -y install nginx
 
+ufw allow 'Nginx HTTP'
+
 sudo bash -c 'echo "server {
     listen 80 default_server;
     root /var/www/html;
