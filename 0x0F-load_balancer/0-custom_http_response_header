@@ -2,14 +2,9 @@
 # Configure Nginx so that its HTTP response contains a custom header
 # HTTP response contains a custom header (on web-01 and web-02)
 
-new_string0="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
-new_string1="server {\n\tadd_header X-Served-By $hostname;"
+sudo apt update
+sudo apt install -y nginx
 
-apt-get update -y
-apt-get install nginx -y
-echo "Hello World!" > /usr/share/nginx/html/index.html
-mkdir -p /var/www/html
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sudo sed -i -E "s/^[^#]+location \/ \{/$new_string0/" /etc/nginx/sites-available/default
-sudo sed -i -E "s/^server \{/$new_string1/" /etc/nginx/sites-available/default
+sudo sed -i '/server {/a \        add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
 sudo service nginx start
