@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#A Bash script that will display information about subdomains.
+
+get_record_type () {
+  dig +noall +answer "$1" | awk '{print $4}'
+}
+
+if [ -z "$1" ]; then
+  echo "Error: domain argument is required"
+  exit 1
+fi
+
+if [ -z "$2" ]; then
+  subdomains=("www" "lb-01" "web-01" "web-02")
+else
+  subdomains=("$2")
+fi
+
+for subdomain in "${subdomains[@]}"; do
+  dns_query="$subdomain.$1"
+  record_type=$(get_record_type "$dns_query")
+  destination=$(dig +noall +answer "$dns_query" | awk '{print $5}')
+  echo "The subdomain $subdomain is a $record_type record and points to $destination"
+done
