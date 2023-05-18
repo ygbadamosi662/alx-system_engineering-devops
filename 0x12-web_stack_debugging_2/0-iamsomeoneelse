@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 #This script takes an argument and run the whoami command under the user passed as an argument
 
-if [ $# -eq 0 ]; then
-  echo "Error: Please provide a username as an argument."
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <username>"
   exit 1
 fi
 
-username="$1"
+# Get the username from the argument
+username=$1
 
-sudo -u "$username" whoami
+# Check if the user exists and has a home directory
+if id "$username" >/dev/null 2>&1 && [ -d "/home/$username" ]; then
+  # Run the whoami command under the specified user with HOME
+  su - "$username" -c "whoami"
+else
+  # Run the whoami command under the specified user without HOME
+  su "$username" -c "whoami"
+fi
