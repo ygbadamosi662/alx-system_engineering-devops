@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#Fix this container so that Nginx is running as the nginx user.
+
+NGINX_USER="nginx"
+NGINX_GROUP="nginx"
+
+NGINX_CONF="/etc/nginx/nginx.conf"
+
+LISTEN_ADDRESS="0.0.0.0"
+LISTEN_PORT="8080"
+
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root."
+  exit 1
+fi
+
+if ! id -u "$NGINX_USER" >/dev/null 2>&1 || ! id -g "$NGINX_GROUP" >/dev/null 2>&1; then
+  echo "Error: Nginx user or group does not exist."
+  exit 1
+fi
+
+sed -i "s/listen\s*80;/listen $LISTEN_ADDRESS:$LISTEN_PORT;/" "$NGINX_CONF"
+
+sed -i "s/user\s*www-data;/user $NGINX_USER $NGINX_GROUP;/" "$NGINX_CONF"
+
+service nginx restart
+
+echo "Nginx has been configured to run as $NGINX_USER user and listen on $LISTEN_ADDRESS:$LISTEN_PORT."
