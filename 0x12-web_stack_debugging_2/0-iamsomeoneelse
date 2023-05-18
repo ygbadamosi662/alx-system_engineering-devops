@@ -6,14 +6,14 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-# Get the username from the argument
 username=$1
 
-# Check if the user exists and has a home directory
-if id "$username" >/dev/null 2>&1 && [ -d "/home/$username" ]; then
-  # Run the whoami command under the specified user with HOME
-  su - "$username" -c "whoami"
+if id "$username" >/dev/null 2>&1; then
+  if [ -d "/home/$username" ]; then
+    su - "$username" -c "whoami"
+  else
+    echo "$username"
+  fi
 else
-  # Run the whoami command under the specified user without HOME
-  su "$username" -c "whoami"
+  echo "User does not exist"
 fi
