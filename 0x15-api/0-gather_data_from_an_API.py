@@ -29,4 +29,4 @@ if __name__ == "__main__":
 
     for task in done_tasks:
         task_title = task['title']
-        print(f"\t{task_title}")
+        print(f"\t {task_title}")
