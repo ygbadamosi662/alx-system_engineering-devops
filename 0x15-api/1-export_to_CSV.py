@@ -31,10 +31,10 @@ if __name__ == "__main__":
             task_completed_status = task['completed']
             task_title = task['title']
             writer.writerow([
-                    f'{sys.argv[1]}',
-                    f'{employee_username}',
-                    f'{task_completed_status}',
-                    f'{task_title}'
+                    f'"{sys.argv[1]}"',
+                    f'"{employee_username}"',
+                    f'"{task_completed_status}"',
+                    f'"{task_title}"'
             ])
 
     print(f"CSV file '{csv_filename}' has been created.")
