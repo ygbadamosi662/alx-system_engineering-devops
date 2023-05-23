@@ -25,16 +25,16 @@ if __name__ == "__main__":
     csv_filename = f'{sys.argv[1]}.csv'
 
     with open(csv_filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_file)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
         for task in todos_data:
             task_completed_status = task['completed']
-            task_title = f'"{task["title"].replace("\"", "\\\"")}"'
+            task_title = task["title"]
             writer.writerow([
-                    f'"{sys.argv[1]}"',
-                    f'"{employee_username}"',
-                    f'"{task_completed_status}"',
-                    task_title
+                    f'{sys.argv[1]}',
+                    f'{employee_username}',
+                    f'{task_completed_status}',
+                    f'{task_title}'
             ])
 
     print(f"CSV file '{csv_filename}' has been created.")
