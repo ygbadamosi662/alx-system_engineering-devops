@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     todos_data = response.json()
 
-    csv_filename = f'{employee_id}.csv'
+    csv_filename = f'{sys.argv[1]}.csv'
 
     with open(csv_filename, mode='w', newline='') as csv_file:
         writer = csv.writer(csv_file)
