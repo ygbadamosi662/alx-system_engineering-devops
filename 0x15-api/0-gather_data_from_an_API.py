@@ -10,7 +10,6 @@ if __name__ == "__main__":
     response = requests.get(employee_url)
     if response.status_code != 200:
         print(f"Failed to retrieve employee details for ID: {sys.argv[1]}")
-        return
 
     employee_data = response.json()
     employee_name = employee_data['name']
@@ -19,7 +18,6 @@ if __name__ == "__main__":
     response = requests.get(todos_url)
     if response.status_code != 200:
         print(f"Failed to retrieve TODO list for employee: {employee_name}")
-        return
 
     todos_data = response.json()
     total_tasks = len(todos_data)
