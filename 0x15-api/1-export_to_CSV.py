@@ -33,7 +33,7 @@ if __name__ == "__main__":
             writer.writerow([
                     f'"{sys.argv[1]}"',
                     f'"{employee_username}"',
-                    f'"{task_completed_status)}"',
+                    f'"{task_completed_status}"',
                     f'"{task_title}"'
             ])
 
