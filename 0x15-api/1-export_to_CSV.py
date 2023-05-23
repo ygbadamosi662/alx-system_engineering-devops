@@ -13,7 +13,7 @@ if __name__ == "__main__":
         print(f"Failed to retrieve employee details for ID: {sys.argv[1]}")
 
     employee_data = response.json()
-    employee_name = employee_data['name']
+    employee_username = employee_data['username']
 
     todos_url = f'{base_url}/todos?userId={sys.argv[1]}'
     response = requests.get(todos_url)
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             task_title = task['title']
             writer.writerow([
                     f'{sys.argv[1]}',
-                    f'{employee_name}',
+                    f'{employee_username}',
                     f'{task_completed_status}',
                     f'{task_title}'
             ])
