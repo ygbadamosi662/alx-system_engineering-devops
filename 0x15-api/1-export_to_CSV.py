@@ -25,7 +25,7 @@ if __name__ == "__main__":
     csv_filename = f'{sys.argv[1]}.csv'
 
     with open(csv_filename, mode='w', newline='') as csv_file:
-        writer = csv.writer(csv_filename, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
 
         for task in todos_data:
             task_completed_status = task['completed']
