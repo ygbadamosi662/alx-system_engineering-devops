@@ -6,7 +6,7 @@ import sys
 if __name__ == "__main__":
     base_url = 'https://jsonplaceholder.typicode.com'
 
-    employee_url = f'{base_url}/users/{sys.argv[1])}'
+    employee_url = f'{base_url}/users/{sys.argv[1]}'
     response = requests.get(employee_url)
     if response.status_code != 200:
         print(f"Failed to retrieve employee details for ID: {sys.argv[1])}")
