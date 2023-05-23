@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
         for task in todos_data:
             task_completed_status = task['completed']
-            task_title = f'"{task['title']}"'
+            task_title = f'"{task["title"]}"'
             writer.writerow([
                     f'"{sys.argv[1]}"',
                     f'"{employee_username}"',
