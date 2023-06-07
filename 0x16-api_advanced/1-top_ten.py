@@ -6,7 +6,7 @@ import requests
 def top_ten(subreddit):
     """Prints the titles of the 10 hottest posts on a given subreddit."""
     
-    url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "0x16-api_advanced:project:\
 v1.0.0 (by /u/firdaus_cartoon_jr)"
