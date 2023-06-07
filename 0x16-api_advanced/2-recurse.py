@@ -39,7 +39,7 @@ def recurse(subreddit, hot_list=[], after="", count=0):
         title = child.get("data").get("title")
         hot_list.append(title)
 
-    if after:
+    if after is not None:
         return recurse(subreddit, hot_list=hot_list, after=after, count=count)
 
     return hot_list
