@@ -11,6 +11,9 @@ def number_of_subscribers(subreddit):
     A Python function that queries reddit API
     to get the total number of subscribers not active userss
     """
+    
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
     userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'+
