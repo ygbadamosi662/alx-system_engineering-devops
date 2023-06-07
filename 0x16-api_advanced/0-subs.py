@@ -24,3 +24,4 @@ def number_of_subscribers(subreddit):
             return 0
     except requests.exceptions.RequestException as e:
         return 0
+number_of_subscribers('this_is_a_fake_subreddit')
