@@ -43,6 +43,3 @@ def recurse(subreddit, hot_list=[], after="", count=0):
         return recurse(subreddit, hot_list=hot_list, after=after, count=count)
 
     return hot_list
-
-result = recurse("python")
-print(result)
