@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists top_ten function"""
+"""Contains top_ten function"""
 import requests
 
 
