@@ -9,7 +9,8 @@ from requests import get
 
 def number_of_subscribers(subreddit):
     """
-    A Python function that queries reddit API to get the total number of subscribers not active userss
+    A Python function that queries reddit API
+    to get the total number of subscribers not active userss
     """
 
     if subreddit is None or not isinstance(subreddit, str):
