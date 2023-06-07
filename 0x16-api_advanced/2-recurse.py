@@ -40,6 +40,6 @@ def recurse(subreddit, hot_list=[], after="", count=0):
         hot_list.append(title)
 
     if after:
-        return recurse(subreddit, hot_list=hot_list, after, count)
+        return recurse(subreddit, hot_list=hot_list, after=after, count=count)
 
     return hot_list
