@@ -3,7 +3,7 @@
 Get the total number of subscribers
 """
 
-from requests import get
+import requests
 
 def number_of_subscribers(subreddit):
     """
